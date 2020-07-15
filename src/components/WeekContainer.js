@@ -11,7 +11,7 @@ class WeekContainer extends React.Component {
   
     componentDidMount = () => {
       const weatherURL =
-      `http://api.openweathermap.org/data/2.5/forecast?zip=360004,in&appid=${api_key}`
+      `http://api.openweathermap.org/data/2.5/forecast?zip=360004,in&units=metric&appid=${api_key}`
       fetch(weatherURL)
       .then(res => res.json())
       .then(data => {
@@ -29,10 +29,15 @@ class WeekContainer extends React.Component {
   
     render() {
       return (
-        <div>
-          {this.formatDayCards()}
+        <div className="container">
+        <h1 className="display-1 jumbotron">5-Day Forecast</h1>
+        <h5 className="display-5 text-muted">Rajkot, Gujarat</h5>
+            <div className="row justify-content-center">
+                {this.formatDayCards()}
+            </div>
+        
         </div>
       )
     }
-  }
+}
 export default WeekContainer;
